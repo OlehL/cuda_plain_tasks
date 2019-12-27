@@ -145,7 +145,7 @@ class Setting:
 
     def config(self):
         subset = ''  # section in user.json, if user.json is used
-        title = 'Cuda Tasks Options'
+        title = 'Plain Tasks options'
         how = {'hide_lex_fil': True, 'stor_json': fn_config}
         op_ed.OptEdD(
             path_keys_info=self.meta_info,
