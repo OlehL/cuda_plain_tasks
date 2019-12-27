@@ -242,9 +242,6 @@ class Command:
     # @dbg.snoop()
     def on_key(self, ed_self, code, state):
         """insert args for function under cursor"""
-
-        if 'ToDo' not in ct.ed.get_prop(ct.PROP_LEXER_FILE):
-            return
         if code == 9 and state == '':
             x0, y0, _, y1 = ct.ed.get_carets()[0]
             if not any([y0 == y1, y1 == -1]):
