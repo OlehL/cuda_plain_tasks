@@ -49,7 +49,7 @@
     ☐ type t, press tab key — it’ll become @today
    ![](https://i.imgur.com/ITJ2Ql8.png)
 
-  ## Time Tracking:
+  ## Time tracking:
     ☐ type s, press tab key — it’ll become @started(19-12-24 01:22)
       You’ll get a current date and time; When a task with such tag is completed/cancelled,
       cuda_plain_tasks will calculate the time spent on that task.
@@ -59,8 +59,8 @@
     ☐ type cr, press tab key — @created(14-12-24 15:57)
   ![](https://media.giphy.com/media/kIF5xIqz8dmdnW4cTF/giphy.gif)
 
-  ## FileType Support:
-    cuda_plain_tasks support these file types out of the box
+  ## File types:
+    Plugin supports these file types out of the box:
     ✔ TODO
     ✔ *.todo
     ✔ *.todolist
@@ -68,4 +68,4 @@
     ✔ *.tasks
 
   # Settings:
-    ☐ goto: Options / Settings - plugins / PlainTasks / Config...
+    ☐ To configure plugin, call menu item "Options / Settings - plugins / PlainTasks / Config..."
