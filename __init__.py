@@ -10,6 +10,19 @@ from .utils import get_word_under_cursor
 # dbg.disable()
 
 
+BREAKLINE = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿'
+WORD_SEPS = '\t.,'
+SNIPPETS = {
+            'c': '@critical',
+            'h': '@high',
+            'l': '@low',
+            't': '@today',
+            's': '@started%d',
+            'tg': '@toggle%d',
+            'cr': '@created%d',
+            }
+
+
 class Command:
 
     def __init__(self):
@@ -22,7 +35,9 @@ class Command:
 
     @staticmethod
     def get_selection_rows():
-        _, y0, _, y1 = ct.ed.get_carets()[0]
+        _, y0, x1, y1 = ct.ed.get_carets()[0]
+        if x1 == 0:
+            y1 -= 1
         if y1 >= 0 and y0 > y1:
             y0, y1 = y1, y0
         return (y0, max(y0, y1))
@@ -166,17 +181,16 @@ class Command:
     def plain_tasks_archive(self):
         alltext = ct.ed.get_text_all().split('\n')
         archivepos = len(alltext) - 1
-        breakline = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿'
 
         for n, t in enumerate(alltext):
-            if t == breakline:
+            if t == BREAKLINE:
                 _n = n + 1
                 if _n <= archivepos and alltext[_n] == self.cfg.archive_name:
                     archivepos = _n
                     break
         else:
             ct.ed.set_text_line(-1, '')
-            ct.ed.set_text_line(-1, breakline)
+            ct.ed.set_text_line(-1, BREAKLINE)
             ct.ed.set_text_line(-1, self.cfg.archive_name)
             archivepos += 3
         x = len(self.cfg.archive_name)
@@ -225,15 +239,6 @@ class Command:
     # @dbg.snoop()
     def on_key(self, ed_self, code, state):
         """insert args for function under cursor"""
-        snippets = {
-                    'c': '@critical',
-                    'h': '@high',
-                    'l': '@low',
-                    't': '@today',
-                    's': '@started%d',
-                    'tg': '@toggle%d',
-                    'cr': '@created%d',
-                    }
 
         if 'ToDo' not in ct.ed.get_prop(ct.PROP_LEXER_FILE):
             return
@@ -246,10 +251,10 @@ class Command:
             if self.parser.isseparator(line) or self.parser.isheader(line):
                 pass
             elif self.parser.isitem(line):
-                word, pos = get_word_under_cursor(line, x0, seps='\t.,')
-                if word in snippets.keys():
+                word, pos = get_word_under_cursor(line, x0, seps=WORD_SEPS)
+                if word in SNIPPETS.keys():
                     date = self.date.datenow(self.cfg.date_format) if self.cfg.done_date else ''
-                    snip = snippets[word].replace('%d', date)
+                    snip = SNIPPETS[word].replace('%d', date)
                     ct.ed.replace(pos[0], y0, pos[1], y0, snip)
                     ct.ed.set_caret(pos[0]+len(snip), y0)
                     return False
