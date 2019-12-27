@@ -13,34 +13,34 @@ lexers=ToDo
 
 [item3]
 section=commands
-caption=PlainTasks\New
+caption=Plain Tasks\New
 method=plain_tasks_new
 lexers=ToDo
 hotkey=Alt+I
 
 [item4]
 section=commands
-caption=PlainTasks\Complete
+caption=Plain Tasks\Complete
 method=plain_tasks_complete
 lexers=ToDo
 hotkey=Alt+D
 
 [item5]
 section=commands
-caption=PlainTasks\Cancel
+caption=Plain Tasks\Cancel
 method=plain_tasks_cancel
 lexers=ToDo
 hotkey=Alt+C
 
 [item6]
 section=commands
-caption=PlainTasks\Archive
+caption=Plain Tasks\Archive
 method=plain_tasks_archive
 lexers=ToDo
 hotkey=Shift+Alt+A
 
 [item10]
 section=commands
-caption=PlainTasks\Config...
+caption=Plain Tasks\Config...
 method=change_cfg
 menu=o
