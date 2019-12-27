@@ -2,10 +2,9 @@
 import sys
 import cudatext as ct
 
-sys.path.append(os.path.dirname(os.path.realpath(__file__)))
-from setting import Setting
-from utils import get_indent, Parser, Date
-from utils import get_word_under_cursor
+from .setting import Setting
+from .utils import get_indent, Parser, Date
+from .utils import get_word_under_cursor
 
 # from dev import dbg
 # dbg.disable()
