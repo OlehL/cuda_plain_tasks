@@ -1,6 +1,9 @@
-# How to Use cuda_plain_tasks:
-  * need install lexer ToDo
-  * need instsll plugin cuda_plain_tasks
+# Plain Tasks plugin for CudaText
+
+  ## Install:
+  
+  * install lexer ToDo (required by plugin, not included in this repo)
+  * install plugin Plain Tasks
 
   ## Projects:
     ☐ Anything with colon at the end of the line is a project title
@@ -65,4 +68,4 @@
     ✔ *.tasks
 
   # Settings:
-    ☐ goto: Options / Settings - plugins / Plain Tasks / Config...
+    ☐ goto: Options / Settings - plugins / PlainTasks / Config...
