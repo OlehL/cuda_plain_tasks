@@ -15,37 +15,37 @@
 
 ### Create tasks
 
-* command: `PlainTasks/New` adds a new task
+* command: `Plain Tasks/New` adds a new task
 * Alt+I also adds a new task
 * If you’re on a new line cuda_plain_tasks creates a new task on the current line
 * If you’re on a line with a task pressing new task shortcut adds a task after it
 * If you’re on a line with some normal text pressing new task shortcut converts it to a task
 * New tasks are nested as much as the task on the previous line
-* If option "add_created_tag"=true also add tag @created with timestamp
+* If option "add_created_tag"=true also add tag `@created` with timestamp
 
 ### Complete tasks
 
-* command: `PlainTasks/Complete` marks a task as done @done(19-12-24 01:10)
-* Alt+D also marks a task as done @done(19-12-24 01:06)
+* command: `Plain Tasks/Complete` marks a task as done `@done(19-12-24 01:10)`
+* Alt+D also marks a task as done `@done(19-12-24 01:06)`
 * Pressing Alt+D again puts it back in pending mode
-* If option "done_tags"=true also add tag @done
+* If option "done_tags"=true also add tag `@done`
 * If option "done_date"=true also add timestamp
 
 ### Cancel tasks
 
-* command: `PlainTasks/Cancel` marks the task as cancelled @cancelled(19-12-24 01:12)
-* Alt+C marks the task as cancelled @cancelled(19-12-24 01:12)
+* command: `Plain Tasks/Cancel` marks the task as cancelled `@cancelled(19-12-24 01:12)`
+* Alt+C marks the task as cancelled `@cancelled(19-12-24 01:12)`
 * Pressing Alt+C again puts it back in pending mode
-* If option "done_tags"=true also add tag @cancelled
+* If option "done_tags"=true also add tag `@cancelled`
 * If option "done_date"=true also add timestamp
 
 ### Tagging tasks
 
-* You can add tags using @ sign, like this @tag
+* You can add tags using @ sign, like this `@tag`
 
 ### Archiving tasks
 
-* command: `PlainTasks/Archive` archives tasks in done mode (completed or cancelled tasks).
+* command: `Plain Tasks/Archive` archives tasks in done mode (completed or cancelled tasks).
 * Alt+Shift+A archives tasks in done mode (completed or cancelled tasks).
 * It does it by removing them from your list and appending them to the bottom of the file under Archive project.
 * The archive project is separated from the other list of projects with a line. See bottom of this file.
@@ -79,4 +79,4 @@ Plugin supports these file types out of the box:
 * *.tasks
 
 ## Settings
-To configure plugin, call menu item "Options / Settings - plugins / PlainTasks / Config..."
+To configure plugin, call menu item "Options / Settings - plugins / Plain Tasks / Config..."
