@@ -61,11 +61,11 @@
 
   ## File types:
     Plugin supports these file types out of the box:
-    ✔ TODO
-    ✔ *.todo
-    ✔ *.todolist
-    ✔ *.taskpaper
-    ✔ *.tasks
+    * TODO
+    * *.todo
+    * *.todolist
+    * *.taskpaper
+    * *.tasks
 
-  # Settings:
-    ☐ To configure plugin, call menu item "Options / Settings - plugins / PlainTasks / Config..."
+  ## Settings:
+    To configure plugin, call menu item "Options / Settings - plugins / PlainTasks / Config..."
