@@ -11,35 +11,39 @@
 * Projects can be folded (a built-in editor feature)
 
 ## Work with tasks
+
 * Create tasks
-      ☐ command: PlainTasks/New  add a new task
-      ☐ Alt+i also adds a new task
-      ☐ If you’re on a new line cuda_plain_tasks creates a new task on the current line
-      ☐ If you’re on a line with a task pressing new task shortcut adds a task after it
-      ☐ If you’re on a line with some normal text pressing new task shortcut converts it to a task
-      ☐ New tasks are nested as much as the task on the previous line
-      ☐ If option "add_created_tag"=true also add tag @created with timestamp
+** command: `PlainTasks/New` adds a new task
+** Alt+I also adds a new task
+** If you’re on a new line cuda_plain_tasks creates a new task on the current line
+** If you’re on a line with a task pressing new task shortcut adds a task after it
+** If you’re on a line with some normal text pressing new task shortcut converts it to a task
+** New tasks are nested as much as the task on the previous line
+** If option "add_created_tag"=true also add tag @created with timestamp
+
 * Complete tasks
-      ✔ command: PlainTasks/Complete  marks a task as done @done(19-12-24 01:10)
-      ✔ Alt+d also marks a task as done @done(19-12-24 01:06)
-      ☐ Pressing Alt+d again puts it back in pending mode
-      ☐ If option "done_tags"=true also add tag @done
-      ☐ If option "done_date"=true also add timestamp
+
+** command: `PlainTasks/Complete` marks a task as done @done(19-12-24 01:10)
+** Alt+D also marks a task as done @done(19-12-24 01:06)
+** Pressing Alt+D again puts it back in pending mode
+** If option "done_tags"=true also add tag @done
+** If option "done_date"=true also add timestamp
+
 * Cancel tasks
-      ✘ command: PlainTasks/Cancel marks the task as cancelled @cancelled(19-12-24 01:12)
-      ✘ Alt+c marks the task as cancelled @cancelled(19-12-24 01:12)
-      ☐ Pressing Alt+c again puts it back in pending mode
-      ☐ If option "done_tags"=true also add tag @cancelled
-      ☐ If option "done_date"=true also add timestamp
+** command: `PlainTasks/Cancel` marks the task as cancelled @cancelled(19-12-24 01:12)
+** Alt+C marks the task as cancelled @cancelled(19-12-24 01:12)
+** Pressing Alt+C again puts it back in pending mode
+** If option "done_tags"=true also add tag @cancelled
+** If option "done_date"=true also add timestamp
+
 * Tagging tasks
-      ☐ You can add tags using @ sign, like this @tag
+** You can add tags using @ sign, like this @tag
+
 * Archiving tasks
-      ✘ command: PlainTasks/Archive archives tasks in done mode (completed or cancelled tasks).
-      ☐ Alt+shift+A archives tasks in done mode (completed or cancelled tasks).
-        It does it by removing them from your list and appending them to the bottom
-        of the file under Archive project.
-        The archive project is separated from the other list of projects with a line.
-        See bottom of this file.
+** command: `PlainTasks/Archive` archives tasks in done mode (completed or cancelled tasks).
+** Alt+shift+A archives tasks in done mode (completed or cancelled tasks).
+** It does it by removing them from your list and appending them to the bottom of the file under Archive project.
+** The archive project is separated from the other list of projects with a line. See bottom of this file.
 
 ![](https://media.giphy.com/media/RN9Aqa8Aat4MRGW7d3/giphy.gif)
 
