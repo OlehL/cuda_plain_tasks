@@ -17,9 +17,9 @@
 
 * command: `Plain Tasks/New` adds a new task
 * Alt+I also adds a new task
-* If you’re on a new line cuda_plain_tasks creates a new task on the current line
-* If you’re on a line with a task pressing new task shortcut adds a task after it
-* If you’re on a line with some normal text pressing new task shortcut converts it to a task
+* If you’re on a new line, plugin creates a new task on the current line
+* If you’re on a line with a task, pressing new task shortcut adds a task after it
+* If you’re on a line with some normal text, pressing new task shortcut converts it to a task
 * New tasks are nested as much as the task on the previous line
 * If option "add_created_tag"=true, also add tag `@created` with timestamp
 
