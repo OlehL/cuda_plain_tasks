@@ -1,16 +1,16 @@
 # Plain Tasks plugin for CudaText
 
-  ## Install:
+## Install:
   
-  * install lexer ToDo (required by plugin, not included in this repo)
-  * install plugin Plain Tasks
+* install lexer ToDo (required by plugin, not included in this repo)
+* install plugin Plain Tasks
 
-  ## Projects:
+## Projects:
     ☐ Anything with colon at the end of the line is a project title
     ☐ Projects can be nested inside each other
     ☐ Projects can be folded (a built-in editor feature)
 
-  ## Tasks:
+## Tasks:
     New:
       ☐ command: PlainTasks/New  add a new task
       ☐ Alt+i also adds a new task
@@ -42,14 +42,14 @@
         See bottom of this file.
   ![](https://media.giphy.com/media/RN9Aqa8Aat4MRGW7d3/giphy.gif)
 
-  ## Priority:
+## Priority:
     ☐ type c, press tab key — it’ll become @critical
     ☐ type h, press tab key — it’ll become @high
     ☐ type l, press tab key — it’ll become @low
     ☐ type t, press tab key — it’ll become @today
    ![](https://i.imgur.com/ITJ2Ql8.png)
 
-  ## Time tracking:
+## Time tracking:
     ☐ type s, press tab key — it’ll become @started(19-12-24 01:22)
       You’ll get a current date and time; When a task with such tag is completed/cancelled,
       cuda_plain_tasks will calculate the time spent on that task.
@@ -59,13 +59,13 @@
     ☐ type cr, press tab key — @created(14-12-24 15:57)
   ![](https://media.giphy.com/media/kIF5xIqz8dmdnW4cTF/giphy.gif)
 
-  ## File types:
-    Plugin supports these file types out of the box:
-    * TODO
-    * *.todo
-    * *.todolist
-    * *.taskpaper
-    * *.tasks
+## File types:
+Plugin supports these file types out of the box:
+* TODO
+* *.todo
+* *.todolist
+* *.taskpaper
+* *.tasks
 
-  ## Settings:
-    To configure plugin, call menu item "Options / Settings - plugins / PlainTasks / Config..."
+## Settings:
+To configure plugin, call menu item "Options / Settings - plugins / PlainTasks / Config..."
