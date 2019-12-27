@@ -35,12 +35,15 @@ class Command:
 
     @staticmethod
     def get_selection_rows():
-        _, y0, x1, y1 = ct.ed.get_carets()[0]
+        carets = ct.ed.get_carets()
+        x0, y0, x1, y1 = carets[0]
+        if y1 < 0:
+            return (y0, y0)
+        if (y0, x0) > (y1, x1):
+            x0, y0, x1, y1 = x1, y1, x0, y0
         if x1 == 0:
             y1 -= 1
-        if y1 >= 0 and y0 > y1:
-            y0, y1 = y1, y0
-        return (y0, max(y0, y1))
+        return (y0, y1)
 
     def make_tag_calc_time_for_task(self, line, iscomplete=True):
         if self.parser.has_tag_started(line):
