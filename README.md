@@ -51,7 +51,7 @@
  
 ![](https://i.imgur.com/ITJ2Ql8.png)
 
-## Time tracking:
+## Time tracking
 * type `s`, press Tab key — it’ll become `@started(19-12-24 01:22)`. You’ll get a current date and time; When a task with such tag is completed/cancelled, plugin will calculate the time spent on that task.
 * type `tg`, press Tab key — `@toggle(14-10-13 16:14)`. That way you can pause and resume started task, so result of calculation will be more correct. First, you need start task, then toggle means pause, next toggle — resume, etc.
 * type `cr`, press Tab key — `@created(14-12-24 15:57)`.
@@ -66,5 +66,5 @@ Plugin supports these file types out of the box:
 * *.taskpaper
 * *.tasks
 
-## Settings:
+## Settings
 To configure plugin, call menu item "Options / Settings - plugins / PlainTasks / Config..."
