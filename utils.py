@@ -90,6 +90,12 @@ class Parser:
                     self.isitemdone(line),
                     self.isitemcancel(line)])
 
+    def issimpletext(self, line):
+        return not any([self.isheader(line),
+                        self.isitem(line),
+                        self.isseparator(line)
+                        ])
+
     @staticmethod
     def getgroup(res, n=0):
         try:
@@ -162,15 +168,18 @@ class Date:
         if not started:
             return
 
-        start = dt.datetime.strptime(started, date_format)
-        end = dt.datetime.strptime(self.datenow(date_format), date_format)
+        try:
+            start = dt.datetime.strptime(started, date_format)
+            end = dt.datetime.strptime(self.datenow(date_format), date_format)
 
-        toggle_times = [dt.datetime.strptime(toggle, date_format) for toggle in togles]
-        all_times = [start] + toggle_times + [end]
-        pairs = zip(all_times[::2], all_times[1::2])
-        deltas = [pair[1] - pair[0] for pair in pairs]
+            toggle_times = [dt.datetime.strptime(toggle, date_format) for toggle in togles]
+            all_times = [start] + toggle_times + [end]
+            pairs = zip(all_times[::2], all_times[1::2])
+            deltas = [pair[1] - pair[0] for pair in pairs]
 
-        return self.format_delta(sum(deltas, dt.timedelta()))
+            return self.format_delta(sum(deltas, dt.timedelta()))
+        except ValueError as ex:
+            msg(ex, 2)
 
     @staticmethod
     def format_delta(delta):

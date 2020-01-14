@@ -1,2 +1,6 @@
+2020.01.14
++ for option "date_format" add description for "%Y"
+- task and related notes move to Archive as one block
+
 2019.12.27
 initial version

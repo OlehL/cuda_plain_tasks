@@ -74,6 +74,7 @@ class Setting:
                      "  %m: Returns the month as a number, from 01 to 12.",
                      "  %p: Returns AM/PM for time.",
                      "  %y: Returns the year in two-digit format, that is, without the century. For example, '19' instead of '2019'.",
+                     "  %Y: Returns the year in four-digit format. For example '2019'.",
                      "  %f: Returns microsecond from 000000 to 999999.",
                      "  %Z: Returns the timezone.",
                      "  %z: Returns UTC offset.",

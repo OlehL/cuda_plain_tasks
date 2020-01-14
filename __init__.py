@@ -6,7 +6,7 @@ from .setting import Setting
 from .utils import get_indent, Parser, Date
 from .utils import get_word_under_cursor
 
-# from dev import dbg
+# from .dev import dbg
 # dbg.disable()
 
 
@@ -181,6 +181,7 @@ class Command:
 
             ct.ed.set_text_line(n, line)
 
+    # @dbg.snoop()
     def plain_tasks_archive(self):
         alltext = ct.ed.get_text_all().split('\n')
         archivepos = len(alltext) - 1
@@ -224,19 +225,24 @@ class Command:
             if self.parser.isseparator(line):
                 pass
 
-            elif self.parser.isitemcancel(line):
-                to_move.append(n)
-
-            elif self.parser.isitemdone(line):
-                to_move.append(n)
+            elif self.parser.isitemcancel(line) or self.parser.isitemdone(line):
+                to_move.append((n, 1))
+                line_indent = get_indent(line)
+                while n < archivepos + 1:
+                    n += 1
+                    line = ct.ed.get_text_line(n)
+                    if self.parser.issimpletext(line) and get_indent(line) > line_indent:
+                        to_move.append((n, get_indent(line)-line_indent))
+                    else:
+                        break
 
         to_move.reverse()
-        for md in to_move:
+        for md, offset in to_move:
             project = get_project(md)
             line = ct.ed.get_text_line(md).strip()
-            t = ''.join(['\n', self.indent(), line, self.cfg.space_before_tag, project])
+            t = ''.join(['\n', self.indent()*offset, line, self.cfg.space_before_tag, project])
             ct.ed.insert(x, archivepos, t)
-        for rm in to_move:
+        for rm, _ in to_move:
             ct.ed.delete(0, rm, 0, rm+1)
 
     # @dbg.snoop()
