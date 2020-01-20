@@ -1,4 +1,5 @@
 ﻿import os
+import re
 import sys
 import cudatext as ct
 
@@ -28,10 +29,17 @@ class Command:
     def __init__(self):
         self.cfg = Setting()
         self.parser = Parser()
+        self.change_parser()
         self.date = Date()
 
     def change_cfg(self):
         self.cfg.config()
+        self.change_parser()
+
+    def change_parser(self):
+        self.parser.re_item_bullet_open = re.compile(r'^\s*({})'.format(self.cfg.task_bullet_open))
+        self.parser.re_item_bullet_done = re.compile(r'^\s*({})'.format(self.cfg.task_bullet_done))
+        self.parser.re_item_bullet_cancel = re.compile(r'^\s*({})'.format(self.cfg.task_bullet_cancel))
 
     @staticmethod
     def get_selection_rows():

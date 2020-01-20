@@ -1,3 +1,6 @@
+2020.01.20
+- fix bug for related notes, which started from +/- symbol
+
 2020.01.14
 + for option "date_format" add description for "%Y"
 - task and related notes move to Archive as one block
