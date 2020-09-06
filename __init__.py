@@ -1,11 +1,15 @@
 ﻿import os
 import re
 import sys
+
+from cudatext import *
 import cudatext as ct
 
 from .setting import Setting
 from .utils import get_indent, Parser, Date
 from .utils import get_word_under_cursor
+
+import datetime
 
 # from .dev import dbg
 # dbg.disable()
@@ -81,6 +85,15 @@ class Command:
         start_space = self.parser.get_start_space(line)
         tab_size = ' '*ct.ed.get_prop(ct.PROP_TAB_SIZE)
         return len(start_space.replace('\t', tab_size))
+
+    def plain_tasks_create_todo_file(self):
+        curDate = datetime.datetime.now()
+        filename = dlg_input('input filename', curDate.strftime('%Y%m%d')+'.todo')
+        filepath = os.path.join(os.getcwd(), filename)
+        f = open(filepath, 'x')
+        file_open(filepath)
+        ed.insert(0, 0, "☐ тест\n✔ тест @done\n✘ тест @cancelled")
+        ed.save()
 
     def plain_tasks_new(self):
         first, last = self.get_selection_rows()

@@ -1,3 +1,6 @@
+2020.09.07
++ command for create todo-file (with examples)
+
 2020.01.20
 - fix bug for related notes, which started from +/- symbol
 
