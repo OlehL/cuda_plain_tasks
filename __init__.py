@@ -1,11 +1,17 @@
 ﻿import os
 import re
 import sys
+
 import cudatext as ct
 
 from .setting import Setting
 from .utils import get_indent, Parser, Date
 from .utils import get_word_under_cursor
+
+from cudatext import app_path
+from cudatext import APP_DIR_DATA
+from cudatext import msg_status
+import cuda_new_file as nf
 
 # from .dev import dbg
 # dbg.disable()
@@ -81,6 +87,19 @@ class Command:
         start_space = self.parser.get_start_space(line)
         tab_size = ' '*ct.ed.get_prop(ct.PROP_TAB_SIZE)
         return len(start_space.replace('\t', tab_size))
+
+    def plain_tasks_create_todo_file(self):
+        DIR_NEWDOC = os.path.join(app_path(APP_DIR_DATA), 'newdoc')
+        filepath = os.path.join(DIR_NEWDOC, 'default.todo')
+        try:
+            f = open(filepath, 'r')
+        except:
+            f = open(filepath, 'x')
+            f.write("☐ test1\n✔ test2 @done\n✘ test3 @cancelled");
+        finally:    
+            f.close()
+        msg_status('select ToDo for creation todo-template')
+        nf.Command().menu()
 
     def plain_tasks_new(self):
         first, last = self.get_selection_rows()

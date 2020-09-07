@@ -78,5 +78,5 @@ To configure plugin, call menu item "Options / Settings - plugins / Plain Tasks 
 
 About
 
-    Author: OlehL, https://github.com/OlehL
+    Author: OlehL (https://github.com/OlehL), ildar r. khasanshin (https://github.com/ildarkhasanshin)
     License: MIT

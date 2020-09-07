@@ -11,35 +11,45 @@ events=on_key
 keys=9
 lexers=ToDo
 
+[item2]
+section=commands
+caption=Plain Tasks\Create todo-file
+method=plain_tasks_create_todo_file
+
 [item3]
+section=commands
+caption=Plain Tasks\-
+method=_
+
+[item4]
 section=commands
 caption=Plain Tasks\New
 method=plain_tasks_new
 lexers=ToDo
 hotkey=Alt+I
 
-[item4]
+[item5]
 section=commands
 caption=Plain Tasks\Complete
 method=plain_tasks_complete
 lexers=ToDo
 hotkey=Alt+D
 
-[item5]
+[item6]
 section=commands
 caption=Plain Tasks\Cancel
 method=plain_tasks_cancel
 lexers=ToDo
 hotkey=Alt+C
 
-[item6]
+[item7]
 section=commands
 caption=Plain Tasks\Archive
 method=plain_tasks_archive
 lexers=ToDo
 hotkey=Shift+Alt+A
 
-[item10]
+[item8]
 section=commands
 caption=Plain Tasks\Config...
 method=change_cfg
