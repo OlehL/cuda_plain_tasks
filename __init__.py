@@ -2,15 +2,13 @@
 import re
 import sys
 
-from cudatext import *
 import cudatext as ct
 
 from .setting import Setting
 from .utils import get_indent, Parser, Date
 from .utils import get_word_under_cursor
 
-import datetime
-
+from cudatext import *
 import cuda_new_file as nf
 
 # from .dev import dbg
