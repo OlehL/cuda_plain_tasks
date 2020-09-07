@@ -94,6 +94,7 @@ class Command:
         except:
             f = open(filepath, 'x')
             f.write("☐ test1\n✔ test2 @done\n✘ test3 @cancelled");
+        finally:    
             f.close()
         msg_status('select ToDo for creation todo-template')
         nf.Command().menu()
