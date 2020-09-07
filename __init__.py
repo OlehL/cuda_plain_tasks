@@ -11,6 +11,8 @@ from .utils import get_word_under_cursor
 
 import datetime
 
+import cuda_new_file as nf
+
 # from .dev import dbg
 # dbg.disable()
 
@@ -87,13 +89,16 @@ class Command:
         return len(start_space.replace('\t', tab_size))
 
     def plain_tasks_create_todo_file(self):
-        curDate = datetime.datetime.now()
-        filename = dlg_input('input filename', curDate.strftime('%Y%m%d')+'.todo')
-        filepath = os.path.join(os.getcwd(), filename)
-        f = open(filepath, 'x')
-        file_open(filepath)
-        ed.insert(0, 0, "☐ тест\n✔ тест @done\n✘ тест @cancelled")
-        ed.save()
+        DIR_NEWDOC = os.path.join(app_path(APP_DIR_DATA), 'newdoc')
+        filepath = os.path.join(DIR_NEWDOC, 'default.todo')
+        try:
+            f = open(filepath, 'r')
+        except:
+            f = open(filepath, 'x')
+            f.write("☐ test1\n✔ test2 @done\n✘ test3 @cancelled");
+            f.close()
+        msg_status('select ToDo for creation todo-template')
+        nf.Command().menu()
 
     def plain_tasks_new(self):
         first, last = self.get_selection_rows()
