@@ -8,7 +8,9 @@ from .setting import Setting
 from .utils import get_indent, Parser, Date
 from .utils import get_word_under_cursor
 
-from cudatext import *
+from cudatext import app_path
+from cudatext import APP_DIR_DATA
+from cudatext import msg_status
 import cuda_new_file as nf
 
 # from .dev import dbg
