@@ -83,6 +83,15 @@ class Command:
         return len(start_space.replace('\t', tab_size))
 
     def plain_tasks_new(self):
+
+        lexname = ct.ed.get_prop(ct.PROP_LEXER_FILE)
+        if lexname != 'ToDo':
+            ct.file_open('')
+            ct.ed.insert(0, 0, self.cfg.task_bullet_open+' ')
+            ct.ed.set_caret(2, 0)
+            ct.ed.set_prop(ct.PROP_LEXER_FILE, 'ToDo')
+            return
+
         first, last = self.get_selection_rows()
 
         for n in range(first, last+1):

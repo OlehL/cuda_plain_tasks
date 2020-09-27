@@ -15,7 +15,6 @@ lexers=ToDo
 section=commands
 caption=Plain Tasks\New
 method=plain_tasks_new
-lexers=ToDo
 hotkey=Alt+I
 
 [item4]
