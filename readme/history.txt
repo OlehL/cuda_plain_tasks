@@ -1,3 +1,7 @@
+
+2020.09.27
++ command "New", when called on non-ToDo file, creates new empty ToDo file
+
 2020.01.20
 - fix bug for related notes, which started from +/- symbol
 
