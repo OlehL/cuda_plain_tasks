@@ -15,8 +15,7 @@
 
 ### Create tasks
 
-* command: `Plain Tasks/New` adds a new task
-* Alt+I also adds a new task
+* command: `Plain Tasks/New` adds a new task; it creates an empty ToDo file if called with non-ToDo lexer active
 * If you’re on a new line, plugin creates a new task on the current line
 * If you’re on a line with a task, pressing new task shortcut adds a task after it
 * If you’re on a line with some normal text, pressing new task shortcut converts it to a task
