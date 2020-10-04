@@ -10,7 +10,7 @@ from .utils import get_word_under_cursor
 # from .dev import dbg
 # dbg.disable()
 
-
+MYLEXER = 'ToDo'
 BREAKLINE = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿'
 WORD_SEPS = '\t.,'
 SNIPPETS = {
@@ -31,6 +31,11 @@ class Command:
         self.parser = Parser()
         self.change_parser()
         self.date = Date()
+
+        if MYLEXER not in ct.lexer_proc(ct.LEXER_GET_LEXERS, ''):
+            ct.msg_box('Plugin "Plain Tasks" could not find it\'s required lexer ToDo.'+
+                ' Please install this lexer from "Plugins / Addon Manager / Install" and restart CudaText.',
+                ct.MB_OK+ct.MB_ICONERROR)
 
     def change_cfg(self):
         self.cfg.config()
@@ -83,6 +88,15 @@ class Command:
         return len(start_space.replace('\t', tab_size))
 
     def plain_tasks_new(self):
+
+        lexname = ct.ed.get_prop(ct.PROP_LEXER_FILE)
+        if lexname != MYLEXER:
+            ct.file_open('')
+            ct.ed.insert(0, 0, self.cfg.task_bullet_open+' ')
+            ct.ed.set_caret(2, 0)
+            ct.ed.set_prop(ct.PROP_LEXER_FILE, MYLEXER)
+            return
+
         first, last = self.get_selection_rows()
 
         for n in range(first, last+1):
