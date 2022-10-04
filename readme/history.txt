@@ -3,7 +3,7 @@
 - fix: commands 'Complete'/'Cancel' did not work when options for bullets were set to '[ ]', '[x]', '[-]'
 
 2021.06.08
-+ add: adapte to new cuda_prefs plugin (CudaText 1.133.x)
++ add: adapt to new "Options Editor Lite" plugin in CudaText 1.133+
 
 2020.09.27
 + add: command "New", when called on non-ToDo file, creates new empty ToDo file
