@@ -51,9 +51,9 @@ class Parser:
     def __init__(self):
         self.re_header = re.compile(r'^\s*(\w+.*?):\s*$')
         self.re_separator = re.compile(r'^\s*---.{3,5}---+$')
-        self.re_item_bullet_open = re.compile(r'^\s*(-|❍|❑|■|□|☐|▪|▫|–|—|≡|→|›|\[\s\]|\[\])')
+        self.re_item_bullet_open = re.compile(r'^\s*(\-|❍|❑|■|□|☐|▪|▫|–|—|≡|→|›|\[\s\]|\[\])')
         self.re_item_bullet_done = re.compile(r'^\s*(\+|✓|✔|☑|√|\[x\]|\[\+\])')
-        self.re_item_bullet_cancel = re.compile(r'^\s*(x|✘|\[-\])')
+        self.re_item_bullet_cancel = re.compile(r'^\s*(x|✘|\[\-\])')
         self.re_tag_done = re.compile(r'\s*@done(\([\d\w,\.:\-\/ @]*\))?')
         self.re_tag_cancel = re.compile(r'\s*@cancelled(\([\d\w,\.:\-\/ @]*\))?')
         self.re_tag_lasted = re.compile(r'\s*@lasted(\([\d\w,\.:\-\/ @]*\))?')
@@ -65,25 +65,30 @@ class Parser:
 
     @staticmethod
     def getbool(val):
-        if val:
-            return True
-        else:
-            return False
+        return bool(val)
 
     def isheader(self, line):
-        return self.getbool(self.re_header.match(line))
+        r = self.getbool(self.re_header.match(line))
+        return r
 
     def isseparator(self, line):
-        return self.getbool(self.re_separator.match(line))
+        r = self.getbool(self.re_separator.match(line))
+        return r
 
     def isitemopen(self, line):
-        return self.getbool(self.re_item_bullet_open.match(line))
+        m = self.re_item_bullet_open.match(line)
+        r = self.getbool(m)
+        #if not r:
+        #    print('isitemopen false', 'm', m)
+        return r
 
     def isitemdone(self, line):
-        return self.getbool(self.re_item_bullet_done.match(line))
+        r = self.getbool(self.re_item_bullet_done.match(line))
+        return r
 
     def isitemcancel(self, line):
-        return self.getbool(self.re_item_bullet_cancel.match(line))
+        r = self.getbool(self.re_item_bullet_cancel.match(line))
+        return r
 
     def isitem(self, line):
         return any([self.isitemopen(line),
