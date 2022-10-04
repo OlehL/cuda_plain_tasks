@@ -51,39 +51,41 @@ class Parser:
     def __init__(self):
         self.re_header = re.compile(r'^\s*(\w+.*?):\s*$')
         self.re_separator = re.compile(r'^\s*---.{3,5}---+$')
-        self.re_item_bullet_open = re.compile(r'^\s*(-|❍|❑|■|□|☐|▪|▫|–|—|≡|→|›|\[\s\]|\[\])')
+        self.re_item_bullet_open = re.compile(r'^\s*(\-|❍|❑|■|□|☐|▪|▫|–|—|≡|→|›|\[\s\]|\[\])')
         self.re_item_bullet_done = re.compile(r'^\s*(\+|✓|✔|☑|√|\[x\]|\[\+\])')
-        self.re_item_bullet_cancel = re.compile(r'^\s*(x|✘|\[-\])')
-        self.re_tag_done = re.compile(r'\s*@done(\([\d\w,\.:\-\/ @]*\))?')
-        self.re_tag_cancel = re.compile(r'\s*@cancelled(\([\d\w,\.:\-\/ @]*\))?')
-        self.re_tag_lasted = re.compile(r'\s*@lasted(\([\d\w,\.:\-\/ @]*\))?')
-        self.re_tag_wasted = re.compile(r'\s*@wasted(\([\d\w,\.:\-\/ @]*\))?')
-        self.re_tag_created = re.compile(r'\s*@created(\([\d\w,\.:\-\/ @]*\))?')
-        self.re_tag_started = re.compile(r'\s*@started(\([\d\w,\.:\-\/ @]*\))?')
-        self.re_tag_toggle = re.compile(r'\s*@toggle(\([\d\w,\.:\-\/ @]*\))?')
+        self.re_item_bullet_cancel = re.compile(r'^\s*(x|✘|\[\-\])')
+        self.re_tag_done = re.compile(r'\s*@done(\([\w,\.:\-\/ @]*\))?')
+        self.re_tag_cancel = re.compile(r'\s*@cancelled(\([\w,\.:\-\/ @]*\))?')
+        self.re_tag_lasted = re.compile(r'\s*@lasted(\([\w,\.:\-\/ @]*\))?')
+        self.re_tag_wasted = re.compile(r'\s*@wasted(\([\w,\.:\-\/ @]*\))?')
+        self.re_tag_created = re.compile(r'\s*@created(\([\w,\.:\-\/ @]*\))?')
+        self.re_tag_started = re.compile(r'\s*@started(\([\w,\.:\-\/ @]*\))?')
+        self.re_tag_toggle = re.compile(r'\s*@toggle(\([\w,\.:\-\/ @]*\))?')
         self.re_start_space = re.compile(r'^\s*')
 
     @staticmethod
     def getbool(val):
-        if val:
-            return True
-        else:
-            return False
+        return bool(val)
 
     def isheader(self, line):
-        return self.getbool(self.re_header.match(line))
+        r = self.getbool(self.re_header.match(line))
+        return r
 
     def isseparator(self, line):
-        return self.getbool(self.re_separator.match(line))
+        r = self.getbool(self.re_separator.match(line))
+        return r
 
     def isitemopen(self, line):
-        return self.getbool(self.re_item_bullet_open.match(line))
+        r = self.getbool(self.re_item_bullet_open.match(line))
+        return r
 
     def isitemdone(self, line):
-        return self.getbool(self.re_item_bullet_done.match(line))
+        r = self.getbool(self.re_item_bullet_done.match(line))
+        return r
 
     def isitemcancel(self, line):
-        return self.getbool(self.re_item_bullet_cancel.match(line))
+        r = self.getbool(self.re_item_bullet_cancel.match(line))
+        return r
 
     def isitem(self, line):
         return any([self.isitemopen(line),

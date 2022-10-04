@@ -1,13 +1,19 @@
 
+2022.10.04
+- fix: commands 'Complete'/'Cancel' did not work when options for bullets were set to '[ ]', '[x]', '[-]'
+
+2021.06.08
++ add: adapt to new "Options Editor Lite" plugin in CudaText 1.133+
+
 2020.09.27
-+ command "New", when called on non-ToDo file, creates new empty ToDo file
++ add: command "New", when called on non-ToDo file, creates new empty ToDo file
 
 2020.01.20
-- fix bug for related notes, which started from +/- symbol
+- fix: bug for related notes, which started from +/- symbol
 
 2020.01.14
-+ for option "date_format" add description for "%Y"
-- task and related notes move to Archive as one block
++ add: for option "date_format" add description for "%Y"
+- fix: task and related notes move to Archive as one block
 
 2019.12.27
 initial version

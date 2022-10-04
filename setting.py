@@ -2,7 +2,11 @@ import os
 import re
 import json
 import cudatext as ct
-import cuda_options_editor as op_ed
+
+try:
+    import cuda_options_editor as op_ed
+except ImportError:
+    import cuda_prefs as op_ed
 
 fn_config = 'cuda_plain_tasks.json'
 config_file = os.path.join(ct.app_path(ct.APP_DIR_SETTINGS),
