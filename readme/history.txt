@@ -1,4 +1,7 @@
 
+2022.10.04
+- fix: commands 'Complete'/'Cancel' did not work when options for bullets were set to '[ ]', '[x]', '[-]'
+
 2021.06.08
 + add: adapte to new cuda_prefs plugin (CudaText 1.133.x)
 

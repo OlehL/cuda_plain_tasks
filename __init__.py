@@ -42,9 +42,13 @@ class Command:
         self.change_parser()
 
     def change_parser(self):
-        self.parser.re_item_bullet_open = re.compile(r'^\s*({})'.format(self.cfg.task_bullet_open))
-        self.parser.re_item_bullet_done = re.compile(r'^\s*({})'.format(self.cfg.task_bullet_done))
-        self.parser.re_item_bullet_cancel = re.compile(r'^\s*({})'.format(self.cfg.task_bullet_cancel))
+        def escape_re(s):
+            for ch in '[]()*+-?':
+                s = s.replace(ch, '\\'+ch)
+            return s
+        self.parser.re_item_bullet_open = re.compile(r'^\s*({})'.format(escape_re(self.cfg.task_bullet_open)))
+        self.parser.re_item_bullet_done = re.compile(r'^\s*({})'.format(escape_re(self.cfg.task_bullet_done)))
+        self.parser.re_item_bullet_cancel = re.compile(r'^\s*({})'.format(escape_re(self.cfg.task_bullet_cancel)))
 
     @staticmethod
     def get_selection_rows():
