@@ -43,7 +43,7 @@ class Command:
 
     def change_parser(self):
         def escape_re(s):
-            for ch in '[]()*+-?':
+            for ch in r'\.[](){}*+-?':
                 s = s.replace(ch, '\\'+ch)
             return s
         self.parser.re_item_bullet_open = re.compile(r'^\s*({})'.format(escape_re(self.cfg.task_bullet_open)))
@@ -134,6 +134,7 @@ class Command:
 
         for n in range(first, last+1):
             line = ct.ed.get_text_line(n)
+            line_init = line
 
             if self.parser.isseparator(line):
                 pass
@@ -165,7 +166,8 @@ class Command:
                     if tag:
                         line += ''.join([self.cfg.space_before_tag, tag])
 
-            ct.ed.set_text_line(n, line)
+            if line != line_init:
+                ct.ed.set_text_line(n, line)
 
     # @dbg.snoop()
     def plain_tasks_cancel(self):
