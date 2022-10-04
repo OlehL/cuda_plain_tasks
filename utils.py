@@ -76,10 +76,7 @@ class Parser:
         return r
 
     def isitemopen(self, line):
-        m = self.re_item_bullet_open.match(line)
-        r = self.getbool(m)
-        #if not r:
-        #    print('isitemopen false', 'm', m)
+        r = self.getbool(self.re_item_bullet_open.match(line))
         return r
 
     def isitemdone(self, line):
